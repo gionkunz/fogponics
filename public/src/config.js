@@ -29,7 +29,7 @@
       }
     },
     packages: {
-      app: {
+      src: {
         defaultExtension: 'ts'
       },
       rxjs: {
