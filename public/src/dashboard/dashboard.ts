@@ -3,20 +3,24 @@ import {BrowserModule} from '@angular/platform-browser';
 import {SliderComponent} from './slider/slider';
 import {HttpModule} from '@angular/http';
 import {OutService} from './out-service';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'fog-dashboard',
   template: `
-    <fog-slider [min]="0" [max]="1024" [step]="1" 
-                [value]="0" (valueChange)="onLedValueChange($event)"></fog-slider>
+    <fog-slider label="LED Brightness"
+                [min]="0" [max]="1024" [step]="1" 
+                [value]="initialLedValue | async" (valueChange)="onLedValueChange($event)"></fog-slider>
   `,
   providers: [
     OutService
   ]
 })
 export class DashboardComponent {
-  constructor(@Inject(OutService) private outService: OutService) {
+  initialLedValue: Observable<number>;
 
+  constructor(@Inject(OutService) private outService: OutService) {
+    this.initialLedValue = outService.getLedValue();
   }
 
   onLedValueChange(value) {

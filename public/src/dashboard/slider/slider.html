@@ -1,2 +1,5 @@
-<input type="range" [min]="min" [max]="max" [step]="step"
-       [value]="value" (input)="onInput($event.target.value)">
+<label>
+  <span class="label">{{label}}</span>
+  <input class="input" type="range" [min]="min" [max]="max" [step]="step"
+         [value]="value" (input)="onInput($event.target.value)">
+</label>

@@ -12,10 +12,10 @@ export class SliderComponent {
   @Input() max;
   @Input() step;
   @Input() value;
+  @Input() label;
   @Output() valueChange = new EventEmitter();
 
   onInput(value) {
-    console.log(value);
     this.valueChange.next(value);
   }
 }
