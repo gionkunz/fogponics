@@ -7,7 +7,8 @@ import {OutService} from './out-service';
 @Component({
   selector: 'fog-dashboard',
   template: `
-    <fog-slider [min]="0" [max]="1024" [step]="1" (valueChange)="onLedValueChange($event)"></fog-slider>
+    <fog-slider [min]="0" [max]="1024" [step]="1" 
+                [value]="0" (valueChange)="onLedValueChange($event)"></fog-slider>
   `,
   providers: [
     OutService
@@ -19,7 +20,7 @@ export class DashboardComponent {
   }
 
   onLedValueChange(value) {
-    this.outService.setLedValue(value);
+    this.outService.setLedValue(value).subscribe();
   }
 }
 

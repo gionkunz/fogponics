@@ -11,6 +11,7 @@ export class SliderComponent {
   @Input() min;
   @Input() max;
   @Input() step;
+  @Input() value;
   @Output() valueChange = new EventEmitter();
 
   onInput(value) {
