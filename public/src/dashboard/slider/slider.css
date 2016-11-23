@@ -17,13 +17,13 @@
 }
 .input::-webkit-slider-thumb {
   border: 0px solid #000000;
-  height: 39px;
-  width: 39px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background: #ff5967;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -3.6px;
+  margin-top: -10px;
 }
 .input:focus::-webkit-slider-runnable-track {
   background: rgba(0, 0, 0, 0.1);

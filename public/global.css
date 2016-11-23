@@ -6,4 +6,9 @@ html {
   box-sizing: border-box;
   font-family: Roboto, Helvetica Neue, Helvetica, sans-serif;
   font-size: 18px;
+  color: #555;
+}
+
+h1 {
+  text-transform: uppercase;
 }
