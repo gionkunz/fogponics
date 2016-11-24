@@ -4,13 +4,27 @@
   "description": "Controller for Fogponics Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha lib/**/*.spec.js",
+    "tdd": "node_modules/.bin/mocha --watch lib/**/*.spec.js"
   },
   "author": "Gion Kunz",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "rpio": "^0.9.12"
+    "later": "^1.2.0",
+    "rpio": "^0.9.12",
+    "rxjs": "^5.0.0-beta.12"
+  },
+  "devDependencies": {
+    "@angular/common": "^2.2.3",
+    "@angular/compiler": "^2.2.3",
+    "@angular/core": "^2.2.3",
+    "@angular/http": "^2.2.3",
+    "@angular/platform-browser": "^2.2.3",
+    "@angular/platform-browser-dynamic": "^2.2.3",
+    "assert": "^1.4.1",
+    "mocha": "^3.1.2",
+    "zone.js": "^0.6.26"
   }
 }
