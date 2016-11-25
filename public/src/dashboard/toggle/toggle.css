@@ -1,0 +1,50 @@
+.toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+
+.toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  padding: 2px;
+  width: 120px;
+  height: 60px;
+  background-color: #dddddd;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+.toggle + label:before,
+.toggle + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.toggle + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+.toggle + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 52px;
+  background-color: #dddddd;
+  border-radius: 52px;
+  transition: margin 0.4s, background 0.4s;
+}
+.toggle:checked + label {
+  background-color: #ff5967;
+}
+.toggle:checked + label:after {
+  margin-left: 60px;
+  background-color: #ff5967;
+}

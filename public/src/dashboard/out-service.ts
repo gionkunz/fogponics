@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 const jsonHeaders = new Headers({
   'Content-Type': 'application/json'
 });
-const ledOutUrl = '/api/out/led';
+const outUrl = '/api/out';
 
 function handleError(error: any): Observable<any> {
   console.error('An error occurred', error);
@@ -21,15 +21,15 @@ export class OutService {
 
   }
 
-  getLedValue(): Observable<number> {
-    return this.http.get(ledOutUrl)
+  getValue(out: string): Observable<number> {
+    return this.http.get(`${outUrl}/${out}`)
       .map(response => response.json().value)
       .catch(handleError);
   }
 
-  setLedValue(value: number): Observable<string> {
+  setValue(out: string, value: number): Observable<string> {
     return this.http
-      .put(ledOutUrl, JSON.stringify({value}), {headers: jsonHeaders})
+      .put(`${outUrl}/${out}`, JSON.stringify({value}), {headers: jsonHeaders})
       .map((response) => response.json().message)
       .catch(handleError);
   }
