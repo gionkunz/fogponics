@@ -1,7 +1,7 @@
 import {Component, NgModule, Inject} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {SliderComponent} from './slider/slider';
-import {ToggleComponent} from './toggle/toggle';
+import {SliderComponent} from '../ui/slider/slider';
+import {ToggleComponent} from '../ui/toggle/toggle';
 import {HttpModule} from '@angular/http';
 import {OutService} from './out-service';
 import {Observable} from 'rxjs/Rx';
@@ -12,9 +12,9 @@ import {Observable} from 'rxjs/Rx';
     <fog-slider label="LED Brightness"
                 [min]="0" [max]="1024" [step]="1" 
                 [value]="initialLedValue | async" (valueChange)="onLedValueChange($event)"></fog-slider>
-    <fog-toggle label="Fan On / Off"
+    <fog-toggle label="Fan"
                 [checked]="initialFanValue | async" (checkedChange)="onFanValueChange($event)"></fog-toggle>
-    <fog-toggle label="Fog On / Off"
+    <fog-toggle label="Fog"
                 [checked]="initialFogValue | async" (checkedChange)="onFogValueChange($event)"></fog-toggle>
   `,
   providers: [
@@ -24,6 +24,7 @@ import {Observable} from 'rxjs/Rx';
 export class DashboardComponent {
   initialLedValue: Observable<number>;
   initialFanValue: Observable<number>;
+  initialFogValue: Observable<number>;
 
   constructor(@Inject(OutService) private outService: OutService) {
     this.initialLedValue = outService.getValue('led');
