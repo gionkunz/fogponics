@@ -1,5 +1,5 @@
-<div>
-  <span class="label">{{label}}</span>
-  <input class="toggle" type="checkbox" [checked]="checked" (input)="onInput($event.target.value)">
-  <label></label>
+<div class="toggle">
+  <label>
+    <input [checked]="checked" (input)="onInput($event.target.value)" type="checkbox"><span>{{label}}</span>
+  </label>
 </div>
