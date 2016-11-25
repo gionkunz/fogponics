@@ -12,8 +12,10 @@ import {Observable} from 'rxjs/Rx';
     <fog-slider label="LED Brightness"
                 [min]="0" [max]="1024" [step]="1" 
                 [value]="initialLedValue | async" (valueChange)="onLedValueChange($event)"></fog-slider>
-    <fog-toggle label="Fan"
+    <fog-toggle label="Fan On / Off"
                 [checked]="initialFanValue | async" (checkedChange)="onFanValueChange($event)"></fog-toggle>
+    <fog-toggle label="Fog On / Off"
+                [checked]="initialFogValue | async" (checkedChange)="onFogValueChange($event)"></fog-toggle>
   `,
   providers: [
     OutService
@@ -26,6 +28,7 @@ export class DashboardComponent {
   constructor(@Inject(OutService) private outService: OutService) {
     this.initialLedValue = outService.getValue('led');
     this.initialFanValue = outService.getValue('fan');
+    this.initialFogValue = outService.getValue('fog');
   }
 
   onLedValueChange(value) {
@@ -34,6 +37,10 @@ export class DashboardComponent {
 
   onFanValueChange(value) {
     this.outService.setValue('fan', value).subscribe();
+  }
+
+  onFogValueChange(value) {
+    this.outService.setValue('fog', value).subscribe();
   }
 }
 

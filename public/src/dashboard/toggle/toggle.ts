@@ -12,7 +12,7 @@ export class ToggleComponent {
   @Input() checked;
   @Output() checkedChange = new EventEmitter();
 
-  onInput(value) {
-    this.checkedChange.next(!!value);
+  onChange(value) {
+    this.checkedChange.next(value);
   }
 }
