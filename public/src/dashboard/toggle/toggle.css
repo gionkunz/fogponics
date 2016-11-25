@@ -46,7 +46,6 @@
 
 .toggle input + span:before {
   content: "";
-  height: 20px;
   background: rgba(100, 100, 100, 0.2);
   transition: background 0.2s ease-out;
   position: absolute;
@@ -57,17 +56,23 @@
   box-shadow: none;
 }
 
+.toggle input + span:after {
+  width: 40px;
+  content: "";
+  position: absolute;
+  background-color: white;
+  left: 0;
+  border: solid transparent 2px;
+  background-clip: padding-box;
+  border-radius: 50%;
+}
+
+
 .toggle input:checked + span:before {
   background: #ff5967;
 }
 
 .toggle input:checked + span:after {
-  content: "";
-  margin-left: 20px;
-  border: solid transparent 2px;
-  background-clip: padding-box;
+  margin-left: 40px;
 }
-.toggle input:checked + span:after {
-  margin-left: 20px;
-  content: "";
-}
+
